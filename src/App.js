@@ -6,8 +6,10 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>  Este es mi primer proyecto de CoderHouse. 
+        <p>  ¡Este es mi primer proyecto de CoderHouse! 
+          
           <h5> Oriana Zapata </h5>
+          <h6> Modificando branch </h6>
         </p>
         <a
           className="App-link"
