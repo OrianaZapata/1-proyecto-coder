@@ -1,29 +1,39 @@
-import React from 'react';
-import Logo from '../../images/logo.png';
+import React, { useState } from 'react';
+import Footer from '../Footer/Footer';
 import ItemListContainer from '../ItemListContainer/ItemListContainer';
+import Counter from '../Counter/Counter';
 import './inicio.css';
 
 const Inicio = () => {
+
+  const [show, setShow] = useState(false);
+
+  const handleOnAdd = (quantity) => {
+    console.log(`La cantidad agregada es: ${quantity} `)
+  }
+
   return (
     <>
-        <section className='contenedor'>   
-            <ItemListContainer greeting='Oriana,' />  
-            <h1 className='mb-5'> Bienvenida a Multi Market </h1>           
-            <img src={Logo} alt="" width='120' />     
-            <div>
-                <div className='redes-sociales'>
-                    <p> También puedes encontrarnos en nuestras redes sociales</p>
-                    <div className='iconos'> 
-                        <i className="bi bi-facebook"></i>
-                        <i className="bi bi-instagram"></i>
-                        <i className="bi bi-twitter"></i>
-                    </div>
-                </div>
-            </div>
+        <section className='contenedor'>
+            {/* <ItemListContainer greeting='Oriana, ¡Bienvenida a Multi Market! ' /> */}
+          <button
+              className='btn mt-2 bg-warning'
+              onClick={()=> setShow (!show)}
+              >
+              {show ? 'Ocultar contador' : 'Mostrar contador'}
+          </button>
+          
+          {show 
+            ? 
+            <Counter stock={27} onAdd={handleOnAdd} /> 
+            : 
+            null
+          }
 
         </section>
+        <Footer />
     </>
   )
 }
 
-export default Inicio
+export default Inicio;
