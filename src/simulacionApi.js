@@ -1,30 +1,30 @@
 const products = [
     {
         id: '1',
-        name: 'Vitamina D',
+        name: 'Fish Oil',
         price:' $4000',
         category: 'Vitaminas para adultos',
-        img: 'dffd',
+        img: 'images/fish-oil.png',
         stock: '20',
-        description: 'Vitamina D para adultos'
+        description: 'Reducen los triglicéridos, un tipo de grasa en la sangre. Reducen el riesgo de desarrollar latidos cardíacos irregulares (arritmias).'
     },
     {
         id: '2',
         name: 'Vitamina C',
         price:' $3500',
         category: 'Vitaminas para adultos',
-        img: 'dffd',
+        img: '/images/vitamina-c.png',
         stock: '10',
-        description: 'Vitamina C para adultos'
+        description: 'Es una vitamina hidrosoluble. Es necesaria para el crecimiento y desarrollo normales.'
     },  
     {
         id: '3',
-        name: 'Vitamina B',
+        name: 'Calcium',
         price:' $1500',
         category: 'Vitaminas para adultos',
-        img: 'dffd',
+        img: '/images/calcium.png',
         stock: '40',
-        description: 'Vitamina B para adultos'
+        description: 'Es importante para la buena salud, el crecimiento de huesos fuertes y previniendo la osteoporosis.'
     }
 ]
 

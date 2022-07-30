@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import Footer from '../Footer/Footer';
-import ItemListContainer from '../ItemListContainer/ItemListContainer';
 import Counter from '../Counter/Counter';
 import './inicio.css';
 
@@ -14,8 +12,7 @@ const Inicio = () => {
 
   return (
     <>
-        <section className='contenedor'>
-            {/* <ItemListContainer greeting='Oriana, ¡Bienvenida a Multi Market! ' /> */}
+        <section className='contenedor'>            
           <button
               className='btn mt-2 bg-warning'
               onClick={()=> setShow (!show)}
@@ -29,9 +26,7 @@ const Inicio = () => {
             : 
             null
           }
-
         </section>
-        <Footer />
     </>
   )
 }
