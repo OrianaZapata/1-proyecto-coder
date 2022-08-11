@@ -14,7 +14,7 @@ const Navbar = () => {
               <Link to='/'> <img src={ Logo } type='button' alt="" width='65' height='65' className='logo' /> </Link>
               <div>
                 <Link to='/category/adultos' className='btn'>  Vitaminas para adultos </Link>
-                <Link to='/*' className='btn'>  Vitaminas para niños </Link>
+                <Link to='/category/niños' className='btn'>  Vitaminas para niños </Link>
                 <Link to='/contacto' className='btn'> Contactanos </Link>
               </div>
             <CartWidget />

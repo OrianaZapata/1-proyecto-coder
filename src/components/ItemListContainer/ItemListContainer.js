@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
 import './itemlistcontainer.css';
-import { getProducts, getProductByCategory } from '../../simulacionApi';
+import { useState, useEffect } from 'react';
+import { getProductsDeAlfredo, getProductsByCategory } from '../../simulacionApi';
 import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom';
 
@@ -8,22 +8,35 @@ const ItemListContainer = ({ greeting }) => {
 
   const [products, setProducts] = useState([]);
 
-  const { category } = useParams()
+  const { categoryId } = useParams()
+
+  useEffect(()=>{
+    const onResize = () =>{
+      console.log('cambio tamaño de pantalla')
+    }
+    window.addEventListener('resize', onResize)
+    
+    return()=>{
+      window.removeEventListener('resize', onResize)
+    }
+  },[])
 
   useEffect(()=> {
-
-    const asyncFunction = category ? getProductByCategory : getProducts;
-    asyncFunction(category).then(products => {
+    const asyncFunction = categoryId ? getProductsByCategory : getProductsDeAlfredo;
+    
+    asyncFunction(categoryId).then(products => {
       setProducts(products)
     }).catch(error => {
       console.log(error)
     })
-  }, [category])
+  }, [categoryId])
 
   return (
     <>
+      <div>
         <h1 className='mt-5'> {greeting} </h1>               
         <ItemList products={products} />
+      </div>
         
     </>
   )

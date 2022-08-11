@@ -7,20 +7,19 @@ const MercadoLibre = () => {
     const [loading, setLoading] = useState(false)
 
      const handleOnSubmit = (e) => {
-            e.preventDefault()
-            setLoading(true)
-            fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${input}`)
+        e.preventDefault()
+        setLoading(true)
+        fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${input}`)
             .then(response=>response.json())
             .then(json =>{
-                setProducts(json.results) //results es una propiedad del objeto, por lo tanto accedo a ella.
-            
+                setProducts(json.results) //results es una propiedad del objeto, por lo tanto accedo a ella.       
             }).catch(error=> {
                 console.log(error)
             }).finally(() => {
                 setLoading(false)
             })      
      }
-
+     console.log(input)
      if(loading){
         return  <h1> Cargando...  </h1>
      }
