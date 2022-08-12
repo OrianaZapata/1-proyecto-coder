@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
-// import ItemCount from '../ItemCount/ItemCount'
+import CartContext from '../../Context/CartContext'
 
 const InputCount = ({ onConfirm, stock, initial=1 }) => {
   const [count, setCount] = useState(initial)
@@ -54,13 +54,18 @@ const ItemDetail = ({ id, name, description, category, price, stock }) => {
 
   const[inputType, setInputType] = useState('button')
   const [quantityToAdd, setQuantityToAdd] = useState(0)
-  console.log(quantityToAdd)
+
+  const { addItem, getProductQuantity } = useContext(CartContext)
 
   const handleOnAdd = (quantity) => {
     console.log(`La cantidad agregada es: ${quantity} `)
-    console.log(quantity)
     setQuantityToAdd(quantity)
+    const productToAdd ={
+      id, name, price, quantity
+    }
+    addItem(productToAdd)
   }
+  const productQuantity = getProductQuantity(id)
   const Count = inputType === 'button' ? ButtonCount : InputCount;
 
   return (
@@ -76,7 +81,7 @@ const ItemDetail = ({ id, name, description, category, price, stock }) => {
         <div className='card-footer'>        
           {
             quantityToAdd === 0 ? (
-              <Count onConfirm={handleOnAdd} stock={stock} />
+              <Count onConfirm={handleOnAdd} stock={stock} initial={productQuantity} />
             ) : (
               <Link to='/cart'> Finalizar compra </Link>
             )

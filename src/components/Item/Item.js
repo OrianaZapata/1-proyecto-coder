@@ -3,6 +3,7 @@ import './Item.css'
 
 const Item = ({ id, img, name, price }) => {
 
+
     const handleClick = (e) =>{
       e.stopPropagation()
       console.log('hice click en item')
